@@ -15,9 +15,15 @@ class BasePage():
     
     def is_element_present(self, how, what):
         try:
-            self.browser.find_element(how, what)
+            element = self.browser.find_element(how, what)
         except NoSuchElementException:
             return False
         return True
         
+    def find_element(self, how, what):
+        try:
+            element = self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return None
+        return element
         
